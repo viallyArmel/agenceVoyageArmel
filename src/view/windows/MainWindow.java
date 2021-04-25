@@ -1,8 +1,10 @@
 package view.windows;
 
+import ActionListeners.AddRoomListener;
 import view.panels.AddRoomPanel;
 import view.panels.HomePanel;
 import view.panels.CustomerRegistrationPanel;
+import view.panels.RoomRegistrationPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -134,12 +136,11 @@ public class MainWindow extends JFrame {
 
 
         addRoom = new JMenuItem("Add room", addRoomIcon);
+        addRoom.addActionListener(new AddRoomListener(container, this));
         bookRoom = new JMenuItem("Book room", bookRoomIcon);
         listRoom = new JMenuItem("List room", listRoomIcon);
         updateRoom = new JMenuItem("Update room", updateRoomIcon);
         deleteRoom = new JMenuItem("Delete room", deleteRoomIcon);
-        AddRoomListener addRoomListener = new AddRoomListener();
-        addRoom.addActionListener(addRoomListener);
 
         hotelRooms.add(addRoom);
         hotelRooms.addSeparator();
@@ -166,7 +167,6 @@ public class MainWindow extends JFrame {
         HomeListener homeListener = new HomeListener();
         home.addActionListener(homeListener);
 
-        // to adapt the size of the screen.
         setVisible(true);
     }
 
@@ -197,13 +197,4 @@ public class MainWindow extends JFrame {
         }
     }
 
-    private class AddRoomListener implements ActionListener{
-        @Override
-        public void actionPerformed(ActionEvent e){
-            container.removeAll();
-            container.add(new AddRoomPanel());
-            container.repaint();
-            setVisible(true);
-        }
-    }
 }
