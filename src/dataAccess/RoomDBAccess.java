@@ -16,6 +16,9 @@ public class RoomDBAccess implements RoomDataAccess{
     private Connection connection;
     private String sqlInstructiion;
     private PreparedStatement preparedStatement;
+
+    public RoomDBAccess() throws ConnectionException{
+        connection = SingletonConnection.getInstance();
     }
 
     @Override
