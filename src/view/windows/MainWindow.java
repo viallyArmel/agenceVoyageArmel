@@ -1,6 +1,9 @@
 package view.windows;
 
 import ActionListeners.AddRoomListener;
+import ActionListeners.ListRoomListener;
+import dataAccess.SingletonConnection;
+import exceptions.ConnectionException;
 import view.panels.AddRoomPanel;
 import view.panels.HomePanel;
 import view.panels.CustomerRegistrationPanel;
@@ -139,6 +142,7 @@ public class MainWindow extends JFrame {
         addRoom.addActionListener(new AddRoomListener(container, this));
         bookRoom = new JMenuItem("Book room", bookRoomIcon);
         listRoom = new JMenuItem("List room", listRoomIcon);
+        listRoom.addActionListener(new ListRoomListener(container, this));
         updateRoom = new JMenuItem("Update room", updateRoomIcon);
         deleteRoom = new JMenuItem("Delete room", deleteRoomIcon);
 
@@ -172,7 +176,7 @@ public class MainWindow extends JFrame {
 
     private class ExitAdapter extends WindowAdapter {
         @Override
-        public void windowClosing(WindowEvent e) {
+        public void windowClosing(WindowEvent e)  {
             System.exit(0);
         }
     }

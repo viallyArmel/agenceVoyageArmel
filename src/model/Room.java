@@ -13,6 +13,8 @@ public class Room {
     private Boolean hasBalcony;
     private String descriptionExtras;
 
+    private AllRoomModel model;
+
     public Room(Integer number, Integer hotel, String type, Integer nbBeds, Double price_per_night, Boolean hasBalcony, GregorianCalendar dateLastRenov, String descriptionExtras) {
         setNumber(number);
         setHotel(hotel);
@@ -24,7 +26,7 @@ public class Room {
         setDescriptionExtras(descriptionExtras);
 
     }
-    public Room(Integer number, Integer hotel, String type, Integer nbBeds, Double price_per_night, Boolean hasBalcony, String descriptionExtras, Integer day, Integer month, Integer year) {
+    public Room(Integer number, Integer hotel, String type, Integer nbBeds, Double price_per_night, Boolean hasBalcony) {
         this(number, hotel, type, nbBeds, price_per_night, hasBalcony, null, null);
     }
 
@@ -91,4 +93,5 @@ public class Room {
     public void setDateLastRenov(GregorianCalendar dateLastRenov) {
         this.dateLastRenov = dateLastRenov;
     }
+
 }
